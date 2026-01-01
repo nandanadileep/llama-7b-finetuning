@@ -77,15 +77,16 @@ training_args = TrainingArguments(
     report_to="none",
 )
 
+def formatting_func(example):
+    return example["text"]
+
 
 trainer = SFTTrainer(
     model=model,
     train_dataset=dataset,
     args=training_args,
-    dataset_text_field="text",
-    processing_class=tokenizer,
+    formatting_func=formatting_func,
 )
-
 
 trainer.train()
 trainer.save_model(OUTPUT_DIR)
