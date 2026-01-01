@@ -1,0 +1,9 @@
+name: alpaca
+source: tatsu-lab/alpaca
+
+fields:
+  instruction: instruction
+  input: input
+  output: output
+
+prompt_style: alpaca
