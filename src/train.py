@@ -80,10 +80,12 @@ training_args = TrainingArguments(
 trainer = SFTTrainer(
     model=model,
     train_dataset=dataset,
-    tokenizer=tokenizer,
     args=training_args,
     max_seq_length=MAX_SEQ_LENGTH,
+    dataset_text_field="text",
+    processing_class=tokenizer,
 )
+
 
 trainer.train()
 trainer.save_model(OUTPUT_DIR)
