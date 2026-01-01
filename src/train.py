@@ -71,10 +71,12 @@ training_args = TrainingArguments(
     learning_rate=LR,
     num_train_epochs=EPOCHS,
     fp16=True,
+    bf16=False,
     logging_steps=50,
     save_steps=500,
     save_total_limit=2,
     report_to="none",
+    max_grad_norm=0.0,
 )
 
 def formatting_func(example):
