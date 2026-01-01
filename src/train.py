@@ -68,6 +68,8 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 model.gradient_checkpointing_enable()
+model.enable_input_require_grads()
+
 
 
 training_args = TrainingArguments(
