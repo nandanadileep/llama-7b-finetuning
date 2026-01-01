@@ -73,16 +73,18 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=GRAD_ACCUM,
     learning_rate=LR,
     num_train_epochs=EPOCHS,
-    fp16=True,
-    bf16=False,
-    fp16_full_eval=False,
+
+    fp16=False,      # ❌ turn OFF AMP
+    bf16=False,      # ❌ ensure bf16 is OFF
     max_grad_norm=0.0,
+
+    optim="paged_adamw_8bit",
     logging_steps=50,
     save_steps=500,
     save_total_limit=2,
-    optim="paged_adamw_8bit",
     report_to="none",
 )
+
 
 
 def formatting_func(example):
