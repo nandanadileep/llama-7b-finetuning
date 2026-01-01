@@ -26,6 +26,7 @@ tokenizer = AutoTokenizer.from_pretrained(
     use_fast=True
 )
 tokenizer.pad_token = tokenizer.eos_token
+tokenizer.model_max_length = MAX_SEQ_LENGTH
 
 
 dataset = load_dataset(
@@ -81,7 +82,6 @@ trainer = SFTTrainer(
     model=model,
     train_dataset=dataset,
     args=training_args,
-    max_seq_length=MAX_SEQ_LENGTH,
     dataset_text_field="text",
     processing_class=tokenizer,
 )
