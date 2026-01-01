@@ -9,6 +9,9 @@ from transformers import (
 from peft import LoraConfig, get_peft_model
 from trl import SFTTrainer
 
+import torch
+torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction = False
+
 
 MODEL_NAME = "meta-llama/Llama-2-7b-hf"
 DATA_PATH = "data/processed/train.jsonl"
@@ -72,12 +75,15 @@ training_args = TrainingArguments(
     num_train_epochs=EPOCHS,
     fp16=True,
     bf16=False,
+    fp16_full_eval=False,
+    max_grad_norm=0.0,
     logging_steps=50,
     save_steps=500,
     save_total_limit=2,
+    optim="paged_adamw_8bit",
     report_to="none",
-    max_grad_norm=0.0,
 )
+
 
 def formatting_func(example):
     return example["text"]
