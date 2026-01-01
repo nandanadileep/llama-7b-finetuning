@@ -11,15 +11,17 @@ from trl import SFTTrainer
 
 import torch
 torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction = False
+import os
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 
 MODEL_NAME = "meta-llama/Llama-2-7b-hf"
 DATA_PATH = "data/processed/train.jsonl"
 OUTPUT_DIR = "outputs"
 
-MAX_SEQ_LENGTH = 512
-BATCH_SIZE = 4
-GRAD_ACCUM = 4
+MAX_SEQ_LENGTH = 384
+BATCH_SIZE = 1
+GRAD_ACCUM = 8
 LR = 2e-4
 EPOCHS = 3
 
@@ -65,6 +67,7 @@ lora_config = LoraConfig(
 
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
+model.gradient_checkpointing_enable()
 
 
 training_args = TrainingArguments(
