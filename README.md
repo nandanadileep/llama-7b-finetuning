@@ -1,4 +1,4 @@
-# LLaMA 7B Fine-Tuning
+# LLaMA 7B Fine-Tuning QLoRA
 
 This project is done to intentionally change the behavior of a general-purpose LLaMA-7B model so it reliably follows a specific instruction style and response structure. Fine-tuning is used because prompting alone cannot enforce consistent behavior, output format, or domain patterns at scale. By training adapter layers, the model internalizes task-specific reasoning instead of repeatedly relying on long prompts. This reduces inference cost, latency, and randomness while improving controllability. The result is a deployable, ownable model variant suitable for real applications rather than experimentation.
 
