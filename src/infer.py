@@ -43,7 +43,7 @@ if __name__ == "__main__":
     tokenizer, model = load_model()
 
     prompt = """### Instruction:
-Explain what LoRA fine-tuning is.
+Explain what LoRA fine-tuning is in machine learning
 
 ### Response:
 """
