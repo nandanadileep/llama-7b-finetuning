@@ -4,7 +4,11 @@
 
 A screen recording demonstrating the complete fine-tuning process and results is available:
 
-**[Screen Recording 2026-01-02 at 5.47.00 PM.mov](Screen%20Recording%202026-01-02%20at%205.47.00%20PM.mov)**
+<p align="center">
+  <a href="https://github.com/nandanadileep/llama-7b-finetuning/blob/main/Screen%20Recording%202026-01-02%20at%205.47.00%E2%80%AFPM.mov">
+    <img src="https://img.shields.io/badge/▶%20Watch-Demo-blue?style=for-the-badge">
+  </a>
+</p>
 
 Watch this video to see the end-to-end workflow from data preparation through training and evaluation.
 
