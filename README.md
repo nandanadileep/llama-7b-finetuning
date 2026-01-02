@@ -26,7 +26,6 @@ data/processed/                - Processed dataset ready for training
 src/                          - Source code for training and evaluation logic
 ui/                           - User interface or related assets
 fine-tuned-llama.ipynb        - Notebook with implementation walkthrough
-Screen Recording …mov         - Demo screen recording of the process
 requirements.txt              - Python dependencies
 README.md                     - This documentation
 ```
