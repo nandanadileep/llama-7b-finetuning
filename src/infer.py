@@ -43,7 +43,7 @@ if __name__ == "__main__":
     tokenizer, model = load_model()
 
     prompt = """### Instruction:
-Explain what LoRA fine-tuning is in machine learning
+Explain the difference between supervised and unsupervised learning
 
 ### Response:
 """
